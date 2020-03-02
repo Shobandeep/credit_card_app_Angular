@@ -1,0 +1,39 @@
+<div *ngIf="serverHasError"  class="alert alert-danger text-center" role="alert">
+    There was a problem with the server, failed to load credit cards.
+</div>
+
+<div class="d-flex justify-content-center m-5 shadow bg-white rounded">
+    <h1 class="my-1 font-weight-bold">
+        {{ userState.currentUser.firstName }}'s credit cards
+    </h1>
+</div>
+
+<div>
+    <button class="btn btn-primary p-3 mx-5 my-3 shadow" (click)="applyForCard()">apply for new card</button>
+</div>
+
+<div *ngIf="cards">
+    <div *ngIf="cards.length != 0; else noCards">
+
+        <div *ngFor="let card of cards" class="card shadow bg-white rounded mx-5 my-3 py-3" (click)="showTransactions(card)">
+            <div class="card-body">
+                <div class="font-weight-bold float-left">Card Number: XXXX-{{ card.creditCardNumber }}</div>
+                <div class="font-weight-bold float-right">Balance: $ {{ card.creditBalance }}</div><br/>
+                <div class="font-weight-bold float-right">Limit: $ {{ card.creditLimit }}</div>
+            </div>
+        </div>
+</div>
+
+</div>
+
+
+<ng-template #noCards>
+
+    <div class="text-center justify-content-center m-5 row">
+        <div class="card shadow bg-white rounded text-center mt-5">
+            <div class="card-header bg-info text-white p-2">no cards</div>
+            <h3 class="m-2 font-weight-bold p-2">you don't have any credit cards, try applying for one. </h3>
+        </div>
+    </div>
+    
+</ng-template>

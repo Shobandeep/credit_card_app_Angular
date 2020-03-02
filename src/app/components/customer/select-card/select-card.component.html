@@ -1,0 +1,77 @@
+<div *ngIf="serverError"  class="alert alert-danger text-center" role="alert">
+    there was a problem with the server, failed to load payment methods.
+</div>
+<div *ngIf="paymentError"  class="alert alert-danger text-center" role="alert">
+    there was a problem with the server, could not process payment
+</div>
+<div *ngIf="insufficientFundsError"  class="alert alert-danger text-center" role="alert">
+    insufficient funds in that card
+</div>
+<div *ngIf="paymentSuccessful"  class="alert alert-success text-center" role="alert">
+    payment successful! 
+    <i class="fa fa-check-circle"></i> 
+</div>
+
+<div *ngIf="!paymentSuccessful; else orderSummary">
+    <div class="d-flex justify-content-center m-5 shadow bg-white rounded">
+        <h1 class="my-1 font-weight-bold">
+            your total is &nbsp;
+        </h1>
+        <h1 class="my-1 font-weight-bold text-success">
+            ${{ total.toFixed(2) }} 
+        </h1>
+        <h1 class="my-1 font-weight-bold">
+            , please select a payment method
+        </h1>
+    </div>
+
+    <div *ngIf="cards">
+            <div *ngFor="let card of cards" class="card shadow bg-white rounded mx-5 my-3 py-3" (click)="makeOrder(card)">
+                <div class="card-body">
+                    <div class="font-weight-bold float-left">Card Number: XXXX-{{card.creditCardNumber}}</div>
+                    <div class="font-weight-bold float-right">Balance: $ {{card.creditBalance}}</div><br/>
+                    <div class="font-weight-bold float-right">Limit: $ {{card.creditLimit}}</div>
+                </div>
+            </div>
+
+    </div>
+</div>
+
+<ng-template #orderSummary>
+    <div class="d-flex justify-content-center">
+        <div class="m-5">
+    
+            <div class="d-flex flex-row justify-content-center align-items-center card shadow m-5 p-2">
+                <h3 class=""> 
+                    order summary
+                </h3>
+            </div>
+            
+            <div *ngIf="cartItems">
+                <div *ngFor="let cartItem of cartItems" class="d-flex flex-row justify-content-between card shadow mb-5 align-items-center">
+                    <div class="d-flex flex-column w-50 mx-1 p-2">
+                        <h5 class=""> {{ cartItem.item.itemName }} </h5>
+                        <p class=" text-muted"> {{ cartItem.item.itemDescription }} </p>
+                    </div>
+                    <img src="{{ serverURL+cartItem.item.imgLink }}">
+    
+                    <p class="text-success bigger-text"> ${{ (cartItem.item.price * cartItem.quantity).toFixed(2) }} </p>
+    
+                    <p class="big-text mr-2 text-center">&nbsp; units: {{ cartItem.quantity }} </p>
+                </div>
+            </div>
+    
+            <div class="d-flex flex-row justify-content-end" >
+                <div class="d-flex flex-row justify-content-end align-items-center card shadow px-3">
+                    <p class=" bigger-text mr-1 mt-3"> charged &nbsp; </p>
+                    <p class="text-success bigger-text  mt-3"> ${{ total.toFixed(2) }} </p>
+                    <p class=" bigger-text ml-3  mt-3">to XXXX-{{ cardPaidWith }}</p>
+                </div>
+                
+            </div>
+            
+        </div>
+    </div>
+
+
+</ng-template>

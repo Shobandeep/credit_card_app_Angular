@@ -1,0 +1,47 @@
+<div *ngIf="serverHasError"  class="alert alert-danger text-center" role="alert">
+    there was a problem with the server, failed to load order summary.
+</div>
+
+
+<div class="d-flex justify-content-center">
+    <div class="m-5">
+
+        <div class="d-flex flex-row justify-content-center align-items-center card shadow mx-5 my-3 p-2">
+            <h3 class=""> 
+                order summary
+            </h3>
+        </div>
+
+        <div>
+            <button class=" text-center btn btn-primary shadow mx-5 mb-5" routerLink="/card_transactions" routerLinkActive="active">
+                <i class="fa fa-arrow-left"></i>
+                &nbsp;back to transactions
+            </button>
+        </div>
+
+        <div *ngIf="orderItems">
+            <div *ngFor="let orderItem of orderItems" class="d-flex flex-row justify-content-between card shadow mb-3 align-items-center">
+                <div class="d-flex flex-column w-50 mx-1 p-2">
+                    <h5 class=""> {{ orderItem.itemName }} </h5>
+                    <p class=" text-muted"> {{ orderItem.itemDescription }} </p>
+                </div>
+                <img src="{{ serverURL+orderItem.imgLink }}">
+
+                <p class="text-success bigger-text"> ${{ (orderItem.price * orderItem.quantity).toFixed(2) }} </p>
+
+                <p class="big-text mr-2 text-center">&nbsp; units: {{ orderItem.quantity }} </p>
+            </div>
+        </div>
+
+        <div class="d-flex flex-row justify-content-end mt-4" >
+            <div class="d-flex flex-row justify-content-end align-items-center card shadow px-3">
+                <p class=" bigger-text mr-1 mt-3"> charged &nbsp; </p>
+                <p class="text-success bigger-text  mt-3"> ${{ orderTotal }} </p>
+                <p class=" bigger-text ml-3  mt-3">to XXXX-{{ card }}</p>
+            </div>
+            
+        </div>
+        
+    </div>
+</div>
+

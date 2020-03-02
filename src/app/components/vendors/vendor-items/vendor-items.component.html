@@ -1,0 +1,31 @@
+<div *ngIf="cartIsFull"  class="alert alert-danger text-center" role="alert">
+    The cart is full! Only {{ maxitemsAllowed }} unique items are allowed.
+</div>
+<div *ngIf="itemQuantityIsMax"  class="alert alert-danger text-center" role="alert">
+    You can only have up to {{ maxItemQuantityAllowed }} units of that item in the cart.
+</div>
+
+
+<div *ngIf="products">
+    <div class="d-flex justify-content-center">
+        <div>
+            <div class="m-5">
+                <button class="btn btn-primary" routerLink="/store" routerLinkActive="active">
+                    <i class="fa fa-arrow-left"></i>
+                    back
+                </button>
+            </div>
+            <div *ngFor="let product of products" class="d-flex flex-row justify-content-between card shadow mb-3 align-items-center">
+                <div class="d-flex flex-column w-50 p-2">
+                    <h5 class=""> {{ product.itemName }} </h5>
+                    <p class=" text-muted"> {{ product.itemDescription }} </p>
+                </div>
+                <img  class="py-1" src="{{ serverURL+product.imgLink }}">
+                <h5 class="text-success mx-4"> ${{ product.price }} </h5>
+                <button class="btn btn-primary mx-4" (click)="addToCart(product)">add to cart</button>
+    
+            </div>
+        </div>
+    </div>
+</div>
+

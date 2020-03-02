@@ -1,0 +1,49 @@
+<div *ngIf="serverError"  class="alert alert-danger text-center" role="alert">
+    {{ serverErrorMsg }}
+</div>
+<div *ngIf="paymentSuccessful"  class="alert alert-success text-center" role="alert">
+    you payment has been successfully processed!
+</div>
+<div class="justify-content-center m-5 row">
+    <div class="card shadow bg-white rounded text-center mt-5">
+        <form class="m-5 form-group" #paymentForm="ngForm" (ngSubmit)="submitPayment(paymentForm.form.status, paymentForm.form.value)">
+            <!-- error messages here -->
+            <div *ngIf="(cardNumber.invalid && cardNumber.touched && cardNumber.dirty) 
+            || ((cardNumber.value > 9999 || cardNumber.value < 1000) && cardNumber.dirty && cardNumber.touched)"  
+            class="alert alert-danger" role="alert">
+                card number is not valid
+            </div>
+            <div *ngIf="amount.invalid && amount.touched && amount.dirty
+            || ((amount.value > 2500 || amount.value < .01) && amount.dirty && amount.touched)"  
+            class="alert alert-danger" role="alert">
+                payment must range from .01 to 2500.00
+            </div>
+            <div *ngIf="inputError"  class="alert alert-danger" role="alert">
+                all fields must be filled
+            </div>
+
+
+            <!-- card number -->
+            <label for="cardNumber">4 digit credit card number:</label>
+            <input 
+                class="form-control mb-3" 
+                type="number" placeholder="credit card number" 
+                required min="1000" max="9999" step="1"
+                required 
+                name="cardNumber" 
+                ngModel #cardNumber="ngModel" 
+            />
+
+            <!-- amount to pay -->
+            <label for="amount">amount:</label>
+            <input class="form-control mb-3" 
+                type="number" placeholder="amount to pay" 
+                required min=".01" max="2500" step=".01"
+                name="amount" 
+                ngModel #amount="ngModel" 
+            />
+
+            <button class="form-control btn btn-success" type="submit">pay</button>
+        </form>
+    </div>
+</div>

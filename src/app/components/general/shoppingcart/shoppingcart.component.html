@@ -1,0 +1,58 @@
+<div *ngIf="cartIsFull"  class="alert alert-danger text-center" role="alert">
+    The cart is full! Only {{ maxitemsAllowed }} unique items are allowed.
+</div>
+<div *ngIf="itemQuantityIsMax"  class="alert alert-danger text-center" role="alert">
+    You can only have up to {{ maxItemQuantityAllowed }} units of that item in the cart.
+</div>
+
+<div class="d-flex justify-content-center">
+    <div class="m-5">
+
+        <div class="d-flex flex-row justify-content-center align-items-center card shadow m-5 py-2 px-4">
+            <h3 class=""> 
+                shopping cart &nbsp;
+                <i class="fa fa-shopping-cart"></i> 
+            </h3>
+        </div>
+
+        <div class="d-flex flex-row justify-content-end mb-4">
+            <button class="btn btn-danger shadow " (click)="clearCart()" [disabled]="cartItems?.length == 0">
+                <i class="fa fa-trash"></i>
+                &nbsp;clear cart
+            </button>
+        </div>
+        
+        <div *ngIf="cartItems">
+            <div *ngFor="let cartItem of cartItems" class="d-flex flex-row justify-content-between card shadow mb-3 align-items-center">
+                <div class="d-flex flex-column w-50 mx-1 p-2">
+                    <h5 class=""> {{ cartItem.item.itemName }} </h5>
+                    <p class=" text-muted"> {{ cartItem.item.itemDescription }} </p>
+                </div>
+                <img src="{{ serverURL+cartItem.item.imgLink }}">
+
+
+                <button class="btn btn-primary ml-5 mr-1" (click)="decrementItem(cartItem.item)">
+                    <i class="fa fa-minus"></i>
+                </button>
+                <p class="text-success bigger-text mt-3"> ${{ (cartItem.item.price * cartItem.quantity).toFixed(2) }} </p>
+                <button class="btn btn-primary ml-1 mr-5" (click)="incrementItem(cartItem.item)">
+                    <i class="fa fa-plus"></i>
+                </button>
+
+                <p class="big-text mr-2 text-center mt-3"> units: {{ cartItem.quantity }} </p>
+            </div>
+        </div>
+
+        <div class="d-flex flex-row justify-content-end" >
+            <div class="d-flex flex-row justify-content-end align-items-center card shadow px-3">
+                <p class=" bigger-text mt-3 mr-1"> TOTAL : &nbsp; </p>
+                <p class="text-success bigger-text mt-3"> ${{ total.toFixed(2) }} </p>
+                <button class="btn btn-primary ml-3" [disabled]="cartItems?.length == 0" (click)="checkout()">
+                    checkout &nbsp;
+                    <i class="fa fa-arrow-right"></i>
+                </button>
+            </div>
+        </div>
+        
+    </div>
+</div>

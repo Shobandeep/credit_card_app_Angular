@@ -1,0 +1,75 @@
+<div class="justify-content-center m-5 row">
+    <div class="card shadow bg-white rounded text-center mt-5">
+        <button class="btn btn-primary w-25 mt-3 ml-3" routerLink="/login" routerLinkActive="active">
+            <i class="fa fa-arrow-left"></i>
+            back
+        </button>
+        <form class="m-5 form-group" #loginForm="ngForm" (ngSubmit)="submitForm(loginForm.form.status, loginForm.form.value)">
+            
+            <!-- error messages here -->
+            <div *ngIf="firstName.invalid && firstName.touched && firstName.dirty"  class="alert alert-danger" role="alert">
+                please enter a valid email first name
+            </div>
+            <div *ngIf="lastName.invalid && lastName.touched && lastName.dirty"  class="alert alert-danger" role="alert">
+                please enter a valid email last name
+            </div>
+            <div *ngIf="userEmail.invalid && userEmail.touched && userEmail.dirty"  class="alert alert-danger" role="alert">
+                please enter a valid email
+            </div>
+            <div *ngIf="userPassword.invalid && userPassword.touched && userPassword.dirty"  class="alert alert-danger" role="alert">
+                password must be at least 6 characters
+            </div>
+            <div *ngIf="inputError"  class="alert alert-danger" role="alert">
+                all fields must be filled
+            </div>
+            <div *ngIf="serverHasError"  class="alert alert-danger" role="alert">
+                {{ serverError }}
+            </div>
+
+            <!-- first name -->
+            <label for="firstName">first name</label>
+            <input 
+                class="form-control mb-3" 
+                type="text" 
+                pattern="^[a-zA-Z]+$"
+                required autofocus minlength="2"
+                name="firstName" 
+                ngModel #firstName="ngModel" 
+            />
+
+            <!-- last name -->
+            <label for="lastName">last name</label>
+            <input 
+                class="form-control mb-3" 
+                type="text" 
+                pattern="^[a-zA-Z]+$"
+                required minlength="2"
+                name="lastName" 
+                ngModel #lastName="ngModel" 
+            />
+            
+            <!-- email -->
+            <label for="userEmail">email</label>
+            <input 
+                class="form-control mb-3" 
+                type="text" 
+                pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
+                required 
+                name="userEmail" 
+                ngModel #userEmail="ngModel" 
+            />
+
+            <!-- password -->
+            <label for="userPassword">password</label>
+            <input class="form-control mb-3" 
+                type="password" 
+                required minlength="6" maxlength="16"
+                name="userPassword" 
+                ngModel #userPassword="ngModel" 
+            />
+
+            <button class="form-control btn btn-danger" type="submit">register</button>
+
+        </form>
+    </div>
+</div>

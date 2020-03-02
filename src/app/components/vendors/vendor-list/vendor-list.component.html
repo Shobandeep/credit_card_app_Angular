@@ -1,0 +1,9 @@
+<div class="justify-content-center m-5 row">
+    <div class="card shadow bg-white rounded text-center mt-5 w-50">
+        <div *ngFor="let vendor of vendors | async;last as isLast" (click)="visitStore(vendor)">
+        <h3 class="mt-5"> {{ vendor.name }} </h3>
+        <p class="mb-5 "> {{ vendor.description }} </p>
+         <hr *ngIf="!isLast" /> 
+        </div>
+    </div>
+</div>

@@ -1,0 +1,100 @@
+<div class="justify-content-start mx-5 mt-3 row">
+<button class="btn btn-primary p-3 " type="button" routerLink="/" routerLinkActive="active">back to home</button>
+</div>
+
+<div class="justify-content-center mx-5 mb-5 row">
+
+    <div class="card shadow bg-white rounded mt-5 d-flex justify-content-center">
+        <h3 class="font-weight-bold card-header bg-warning text-center"> how to use this site </h3>
+        <div class="card-body">
+            <h5 class="text-center"><strong> The main purpose of this site is to simulate parts of a e-commerce system that also issues credit cards </strong></h5>
+            <br>
+            <ul>
+                <li>
+                    <strong>Customer</strong> <br>
+                    As a customer, the user can register for an account or log in if they already have one to view their credit cards. 
+                    They may also apply for new credit cards if they wish. Once a customer has a card, they can head over to the vendors and buy items.
+                    When they are ready, they can checkout by clicking on the shopping cart on the top left of the screen. In the shopping cart, they can make 
+                    adjustments to their order and checkout when ready. If someone tries to checkout without logging in, they'll be redirected to the login screen
+                    and brought back once they've logged then. The customer can also make payments to their card from the home screen (note: they don't have to be logged in
+                    to make a payment). In the client menu, in addition to viewing their cards, the customer can look at their transaction history for a particular card as 
+                    well as order details for said transactions.
+                </li>
+                <li>
+                    <strong>Admin</strong> <br>
+                    The admin, after logging in, is able to view every transaction by a vendor and it's order summary as well as who made the purchase. The admin can also see all
+                    registered users as well as their cards and transactions. Lastly the admin is able to activate or deactivate a customer's account which would prevent the customer
+                    from logging in or making any purchases.
+                </li>
+                <li>
+                    <strong>Additional information</strong> 
+                    <ul>
+                        <li> 
+                            admins cannot go to user only routes like payment (you have to be logged out or signed in as a customer), 
+                            checkout, login, or register and the customer cannot go to admin only routes.  
+                        </li>
+                    </ul>
+                </li>
+
+            </ul>
+            
+            <strong>Why make this site?</strong> 
+            <br><br>
+            This project is an updated version of a project I had done for my software engineering class, the original project was done
+            in Node.js (using pug as a templating engine) and a MySQL database. I initially set out to learn how to use angular and since I already had a template
+            project to match my progress against, I could put everything I learned into practice and everything I couldn't, I would research until I could. Visually,
+            there are some similarities but everything is different under the hood. An added bonus was that I was free to learn and implement everything I wanted without
+            any deadlines.
+            <br><br>
+            <strong>What's different about this project?</strong> 
+            <br><br>
+            For starters, a majority of the presentation has been moved over to the client side (front end) and the Node.js server (back end) solely handles the business logic and 
+            database interaction. This also made the code neater and way easier to debug. The state management is also significantly  better, as opposed to a giant object 
+            named 'state' that reset every time the server went down. Since this was my second go at it, I was also able to add some new features as well!
+            <ul>
+                <li>
+                    There's now a shopping cart, previously, a customer would select what they wanted at a particular store and checkout right there, now they have the freedom to 
+                    browse, mixing different items from various stores and are allowed to have a final look at their cart before they're ready to checkout. 
+                </li>
+                <li>
+                    Both the admin and customer can look at their order summary to see which items they bought.
+                </li>
+                <li>
+                    Thanks to Rxjs, state management is much easier and the site can now actually handle more than one user at a time. The previous attempt at state management 
+                    couldn't handle more than a single user. JSON Web Tokens also take a lot of the authentication pain away and free the server from keeping track of 
+                    who is logged in. 
+                </li>
+                <li>
+                    Trying to stuff variables into raw query string was extremely tedious, sequelize helped me not only make my queries simple, I can now setup the database by simply
+                    running my Node.js code instead of fiddling with MySQL. Designing new tables was breeze and I can now set them up in MSSQL or SQLLite without changing much.
+                </li>
+                <li>
+                    A register option to allow new users to sign up and start shopping, previously the admin would have to create a user manually.
+                </li>
+            </ul>
+            <br>
+            <strong>So what did I learn?</strong> 
+            <br><br>
+            <ol>
+                <li>
+                    Separation of business logic and presentation.
+                </li>
+                <li>
+                    Angular framework
+                </li>
+                <li>
+                    Rxjs Obervables
+                </li>
+                <li>
+                    Sequelize
+                </li>
+                <li>
+                    JSON Web Tokens
+                </li>
+            </ol>
+
+
+        </div>
+    </div>
+</div>
+

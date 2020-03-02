@@ -1,0 +1,47 @@
+<div *ngIf="serverHasError"  class="alert alert-danger text-center" role="alert">
+    There was a problem with the server, failed to load vendor transactions.
+</div>
+
+<div class="d-flex justify-content-center mx-5 mt-5 shadow bg-white rounded ">
+    <h1 class="my-1 font-weight-bold">transaction history for {{ vendorName }}
+    </h1>
+</div>
+
+
+<button class=" text-center btn btn-primary mx-5 my-3 shadow" routerLink="/admin_vendor_list" routerLinkActive="active">
+    <i class="fa fa-arrow-left"></i>
+    &nbsp;back to vendors
+</button>
+
+
+<div *ngIf="transactions">
+    <div *ngIf="transactions.length != 0; else noTransactions">
+        <div *ngFor="let transaction of transactions" class="card shadow bg-white rounded mx-5 my-2">
+            <div class="d-flex flex-row justify-content-between p-3">
+                <div class="font-weight-bold float-left pt-1">
+                    {{ transaction.date }}
+                </div>
+                
+                <div class="font-weight-bold text-center text-success pt-1">
+                    $ {{ transaction.amount }} ({{ transaction.firstName}} {{ transaction.lastName}})
+                </div>
+                <button class="text-center float-right btn btn-primary" (click)="showDetails(transaction)" >
+                    details
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<ng-template #noTransactions>
+
+    <div class="text-center justify-content-center m-5 row">
+        <div class="card shadow bg-white rounded text-center mt-5">
+            <div class="card-header bg-info text-white p-2">no transaction history</div>
+            <h3 class="m-2 font-weight-bold p-2">no one bought anything yet... </h3>
+        </div>
+    </div>
+    
+</ng-template>

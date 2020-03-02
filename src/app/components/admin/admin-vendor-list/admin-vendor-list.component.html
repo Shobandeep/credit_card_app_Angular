@@ -1,0 +1,16 @@
+<div class="justify-content-center m-5 row">
+    <div class="card shadow bg-white rounded text-center mt-5 w-50">
+        <div class="d-flex justify-content-start pt-3 px-3">
+            <button class=" text-center btn btn-danger shadow" routerLink="/admin_menu" routerLinkActive="active">
+                <i class="fa fa-arrow-left"></i>
+                &nbsp;back to admin menu
+            </button>
+        </div>
+        <hr/> 
+        <div *ngFor="let vendor of vendors | async;last as isLast" (click)="visitStore(vendor)">
+        <h3 class="mt-5"> {{ vendor.name }} </h3>
+        <p class="mb-5 "> {{ vendor.description }} </p>
+         <hr *ngIf="!isLast" /> 
+        </div>
+    </div>
+</div>

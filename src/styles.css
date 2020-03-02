@@ -1,1 +1,47 @@
 /* You can add global styles to this file, and also import other style files */
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+label {
+    float: left;
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+.bigger-text {
+    font-size: x-large;
+}
+
+.big-text {
+    font-size: large;
+}
+
+img {
+    height: 125px;
+}
+
+ /* this bit of code removes the up/down buttons
+ from the 'step' attribute  */
+ /* everyone else */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+/* Firefox */
+input[type=number] {
+  -moz-appearance:textfield;
+}
+
+.my-width {
+    width: 25%;
+}
+
+@media only screen and (max-width: 600px) {
+    .my-width {
+        width: 100%;
+    }
+}

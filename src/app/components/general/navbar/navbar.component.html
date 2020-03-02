@@ -1,0 +1,46 @@
+<nav class="navbar navbar-dark bg-dark">
+
+    <div class="container-fluid">
+
+        <div class="nav navbar-nav d-flex flex-row align-items-center">
+
+            <button class="text-light bigger-text btn navbar-brand" routerLink="" routerLinkActive="active">
+                <i class="fa fa-home"></i>
+                home
+            </button>
+            <button class="text-light bigger-text btn" routerLink="cart" routerLinkActive="active">
+                {{ cartItems }}
+                <i class="fa fa-shopping-cart"></i>
+            </button>
+            
+        </div>
+
+        <div class="text-light bigger-text">
+            Simple Credit Card
+        </div>
+
+        <div class="nav navbar-nav d-flex flex-row align-items-center" *ngIf="userLoggedIn">
+
+            <div *ngIf="!isAdmin; else adminBlock" class="text-info bigger-text mr-5">
+                Hi &nbsp;{{ currentUser.firstName }}!
+            </div>
+            <ng-template #adminBlock>
+                <div class="text-danger bigger-text mr-5">
+                    ADMIN
+                </div>
+            </ng-template>
+
+            <button routerLink="/logout" routerLinkActive="active" class="text-light bigger-text btn">
+                <i class="fa fa-power-off"></i>
+                logout
+            </button>
+
+        </div>
+
+    </div>
+    
+
+    
+</nav>
+
+

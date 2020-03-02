@@ -1,0 +1,28 @@
+<div class="justify-content-center m-5 row">
+    <div class="card shadow bg-white rounded text-center mt-5">
+        <div class="card-header bg-danger bigger-text text-light">
+            ADMIN
+        </div>
+        <form class="m-5 form-group" #adminLoginForm="ngForm" (ngSubmit)="submitForm(adminLoginForm.form.status, adminLoginForm.form.value)">
+            
+            <!-- error messages here -->
+            <div *ngIf="adminPassword.invalid && adminPassword.touched && adminPassword.dirty"  class="alert alert-danger" role="alert">
+                password must be at least 5 characters
+            </div>
+            <div *ngIf="serverHasError"  class="alert alert-danger" role="alert">
+                {{ serverError }}
+            </div>
+
+            <!-- password -->
+            <input class="form-control mb-3" 
+                type="password" placeholder="password" 
+                required minlength="5" maxlength="16"
+                name="adminPassword" 
+                ngModel #adminPassword="ngModel" 
+            />
+
+            <button class="form-control btn btn-danger mt-3" type="submit">log in</button>
+
+        </form>
+    </div>
+</div>
