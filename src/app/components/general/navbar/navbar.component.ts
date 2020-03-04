@@ -11,12 +11,12 @@ import { User } from 'src/app/models/user.model';
 })
 export class NavbarComponent implements OnInit, OnDestroy {
 
-  private userLoggedIn = false;
-  private userSubscription: Subscription;
-  private cartSubscription: Subscription;
-  private currentUser: User;
-  private isAdmin = false;
-  private cartItems: number;
+  public userLoggedIn = false;
+  public userSubscription: Subscription;
+  public cartSubscription: Subscription;
+  public currentUser: User;
+  public isAdmin = false;
+  public cartItems: number;
 
   constructor(
     private userState: UserStateService,

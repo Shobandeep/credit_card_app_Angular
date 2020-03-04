@@ -10,7 +10,7 @@ import { Router } from '@angular/router';
 })
 export class AdminVendorListComponent implements OnInit {
 
-  private vendors : Observable<Object>;
+  public vendors : Observable<Object>;
 
 
   constructor(

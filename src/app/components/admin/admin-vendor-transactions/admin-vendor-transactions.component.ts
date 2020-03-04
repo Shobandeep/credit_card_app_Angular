@@ -11,10 +11,10 @@ import { ServerService } from 'src/app/services/server/server.service';
 })
 export class AdminVendorTransactionsComponent implements OnInit {
 
-  private serverHasError: boolean = false;
-  private vendorName: string;
-  private serverURL: string;
-  private transactions: any;
+  public serverHasError: boolean = false;
+  public vendorName: string;
+  public serverURL: string;
+  public transactions: any;
 
 
   constructor(

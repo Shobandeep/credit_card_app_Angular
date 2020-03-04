@@ -10,8 +10,8 @@ import { UserStateService } from 'src/app/services/user-state-store/user-state.s
 })
 export class AdminClientListComponent implements OnInit {
 
-  private serverHasError: boolean = false;
-  private customers: any[];
+  public serverHasError: boolean = false;
+  public customers: any[];
 
   
 

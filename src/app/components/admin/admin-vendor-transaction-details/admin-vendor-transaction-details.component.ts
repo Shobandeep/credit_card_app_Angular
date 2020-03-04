@@ -11,11 +11,11 @@ import { UserStateService } from 'src/app/services/user-state-store/user-state.s
 })
 export class AdminVendorTransactionDetailsComponent implements OnInit {
 
-  private serverHasError: boolean = false;
-  private orderItems: any;
-  private orderTotal: string;
-  private card: string;
-  private serverURL: string;
+  public serverHasError: boolean = false;
+  public orderItems: any;
+  public orderTotal: string;
+  public card: string;
+  public serverURL: string;
 
 
   constructor(

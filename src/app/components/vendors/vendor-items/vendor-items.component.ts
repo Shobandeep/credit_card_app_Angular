@@ -12,13 +12,13 @@ import { CartStateService } from 'src/app/services/cart-state-store/cart-state.s
 })
 export class VendorItemsComponent implements OnInit, OnDestroy {
 
-  private vendorName: string;
-  private serverURL: string;
-  private products : VendorItem[];
-  private cartIsFull = false;
-  private itemQuantityIsMax = false;
-  private maxitemsAllowed: number;
-  private maxItemQuantityAllowed: number;
+  public vendorName: string;
+  public serverURL: string;
+  public products : VendorItem[];
+  public cartIsFull = false;
+  public itemQuantityIsMax = false;
+  public maxitemsAllowed: number;
+  public maxItemQuantityAllowed: number;
 
 
   constructor(

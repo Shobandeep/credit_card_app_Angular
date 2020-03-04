@@ -14,17 +14,16 @@ import { CreditCard } from 'src/app/models/credit-card.model';
 })
 export class SelectCardComponent implements OnInit {
 
-  private serverURL: string;
-  private total: number;
-  private cartItems: CartItem[];
-  private payloadItems: any[];
-  private cards: CreditCard[];
-  private cardPaidWith: number = 1000;
-  private paymentSuccessful = false;
-
-  private serverError = false;
-  private paymentError = false;
-  private insufficientFundsError = false;
+  public serverURL: string;
+  public total: number;
+  public cartItems: CartItem[];
+  public payloadItems: any[];
+  public cards: CreditCard[];
+  public cardPaidWith: number = 1000;
+  public paymentSuccessful = false;
+  public serverError = false;
+  public paymentError = false;
+  public insufficientFundsError = false;
 
   constructor(
     private cartState: CartStateService, 

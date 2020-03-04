@@ -10,10 +10,10 @@ import { Router } from '@angular/router';
 })
 export class AdminClientTransactionsComponent implements OnInit {
 
-  private serverHasError: boolean = false;
-  private transactions: any[];
-  private name: string;
-  private card: any;
+  public serverHasError: boolean = false;
+  public transactions: any[];
+  public name: string;
+  public card: any;
 
   constructor(
     private adminState: UserStateService,

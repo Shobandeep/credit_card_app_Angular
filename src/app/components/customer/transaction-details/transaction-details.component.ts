@@ -11,14 +11,12 @@ import { ServerService } from 'src/app/services/server/server.service';
 })
 export class TransactionDetailsComponent implements OnInit {
 
-  private serverURL: String;
-  private transactionId: string;
-
-  private serverHasError: boolean = false;
-
-  private orderTotal: any;
-  private orderItems: any;
-  private card: string;
+  public serverURL: String;
+  public transactionId: string;
+  public serverHasError: boolean = false;
+  public orderTotal: any;
+  public orderItems: any;
+  public card: string;
 
 
   constructor(

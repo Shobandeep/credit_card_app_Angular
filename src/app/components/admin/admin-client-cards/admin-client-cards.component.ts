@@ -11,12 +11,12 @@ import { CreditCard } from 'src/app/models/credit-card.model';
 })
 export class AdminClientCardsComponent implements OnInit {
 
-  private serverHasError: boolean = false;
-  private serverActiveError: boolean = false;
-  private serverActiveSuccess: boolean = false;
-  private serverActiveMsg: string;
-  private cards: CreditCard[];
-  private client: any;
+  public serverHasError: boolean = false;
+  public serverActiveError: boolean = false;
+  public serverActiveSuccess: boolean = false;
+  public serverActiveMsg: string;
+  public cards: CreditCard[];
+  public client: any;
 
   constructor(
     private adminState: UserStateService, 

@@ -11,14 +11,16 @@ import { CreditCard } from 'src/app/models/credit-card.model';
 })
 export class CardsComponent implements OnInit {
 
-  private serverHasError: boolean = false;
-  private cards: CreditCard[];
+  public serverHasError: boolean = false;
+  public firstName: string;
+  public cards: CreditCard[];
 
   constructor(
     private userState: UserStateService, 
     private server: ServerService, 
     private router: Router
     ) {
+    this.firstName = this.userState.currentUser.firstName;
     // do a query for user cards
     this.loadCards();
   }

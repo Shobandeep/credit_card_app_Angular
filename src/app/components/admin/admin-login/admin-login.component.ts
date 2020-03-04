@@ -10,8 +10,8 @@ import { Router } from '@angular/router';
 })
 export class AdminLoginComponent implements OnInit {
 
-  private serverHasError:boolean = false;
-  private serverError: string;
+  public serverHasError:boolean = false;
+  public serverError: string;
 
 
   constructor(

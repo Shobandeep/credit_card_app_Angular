@@ -10,7 +10,7 @@ import { Router } from '@angular/router';
 })
 export class VendorListComponent implements OnInit {
 
-  private vendors : Observable<Object>;
+  public vendors : Observable<Object>;
 
 
   constructor(private server: ServerService, private router: Router) {

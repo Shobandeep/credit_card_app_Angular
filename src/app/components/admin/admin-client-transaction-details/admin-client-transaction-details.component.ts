@@ -11,14 +11,14 @@ import { environment } from 'src/environments/environment';
 })
 export class AdminClientTransactionDetailsComponent implements OnInit {
 
-  private serverURL: String;
-  private transactionId: string;
+  public serverURL: String;
+  public transactionId: string;
 
-  private serverHasError: boolean = false;
+  public serverHasError: boolean = false;
 
-  private orderTotal: any;
-  private orderItems: any;
-  private card: string;
+  public orderTotal: any;
+  public orderItems: any;
+  public card: string;
 
 
   constructor(

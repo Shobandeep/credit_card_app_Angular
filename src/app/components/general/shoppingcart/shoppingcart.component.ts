@@ -13,12 +13,12 @@ import { Subscription } from 'rxjs';
 })
 export class ShoppingcartComponent implements OnInit, OnDestroy {
 
-  private serverURL: string;
-  private cartSubscription: Subscription;
-  private cartItems : CartItem[];
-  private itemQuantityIsMax = false;
-  private maxItemQuantityAllowed: number;
-  private total: number;
+  public serverURL: string;
+  public cartSubscription: Subscription;
+  public cartItems : CartItem[];
+  public itemQuantityIsMax = false;
+  public maxItemQuantityAllowed: number;
+  public total: number;
 
   constructor(
     private cartState: CartStateService, 

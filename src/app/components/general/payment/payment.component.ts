@@ -8,10 +8,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PaymentComponent implements OnInit {
 
-  private inputError: boolean = false;
-  private serverError: boolean = false;
-  private serverErrorMsg: string;
-  private paymentSuccessful = false;
+  public inputError: boolean = false;
+  public serverError: boolean = false;
+  public serverErrorMsg: string;
+  public paymentSuccessful = false;
 
   constructor(
     private server: ServerService

@@ -11,10 +11,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CardTransactionsComponent implements OnInit {
 
-  private serverHasError: boolean = false;
-  private transactions: any[];
-  private name: string;
-  private card: any;
+  public serverHasError: boolean = false;
+  public transactions: any[];
+  public name: string;
+  public card: any;
 
   constructor(
     private userState: UserStateService,

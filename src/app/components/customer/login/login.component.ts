@@ -11,12 +11,12 @@ import { Router, ActivatedRoute } from '@angular/router';
 })
 export class LoginComponent implements OnInit {
 
-  private serverHasError:boolean = false;
-  private inputError: boolean = false;
-  private serverError: string;
-  private loginAttempt: Observable<any>;
-  private shouldRedirect: boolean = false;
-  private redirectTo: string;
+  public serverHasError:boolean = false;
+  public inputError: boolean = false;
+  public serverError: string;
+  public loginAttempt: Observable<any>;
+  public shouldRedirect: boolean = false;
+  public redirectTo: string;
 
   constructor(
     private server: ServerService, 

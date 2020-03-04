@@ -11,10 +11,10 @@ import { Router } from '@angular/router';
 })
 export class RegisterComponent implements OnInit {
 
-  private serverHasError: boolean = false;
-  private inputError: boolean = false;
-  private serverError: string;
-  private registerAttempt: Observable<any>;
+  public serverHasError: boolean = false;
+  public inputError: boolean = false;
+  public serverError: string;
+  public registerAttempt: Observable<any>;
 
   constructor(private server: ServerService, private userState: UserStateService, private router: Router) { }
 
