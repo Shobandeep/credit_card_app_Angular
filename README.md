@@ -1,7 +1,7 @@
 # SimpleCreditCard
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.23.
-You can check it out over here: [link](https://simplecreditcard.site/)
+You can check it out over here: [link to live app](https://simplecreditcard.site/)
 
 ## Development server
 
